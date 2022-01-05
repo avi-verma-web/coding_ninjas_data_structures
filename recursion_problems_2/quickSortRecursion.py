@@ -27,3 +27,8 @@ def quickSort(a, si, ei):
     index = partition(a, si, ei)
     quickSort(a, si, index-1)
     quickSort(a, index+1, ei)
+
+a = [2, 5, 6, 8, -7, 89, 24, 32]
+
+quickSort(a,0,len(a)-1)
+print(a)
