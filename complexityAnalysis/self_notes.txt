@@ -34,3 +34,8 @@ i.e  T(A,n)<=k*n^2
 O(n^3)->
 algorithm A is O(n^3) if time taken by A is less than k*n^3
 i.e  T(A,n)<=k*n^3
+
+--------------------------------------------------------
+TIME COMPLEXITY ANALYSIS FOR RECURSION
+
+for recusive functions Find recurrence relation

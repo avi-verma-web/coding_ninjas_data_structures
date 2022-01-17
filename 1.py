@@ -1,12 +1,14 @@
-class Student:
-    name = 'Parikh'
-    def __init__(self,name):
-        self.name=name
-    def store_details(self):
-        self.age = 60
-    def print_details(self):
-        print(self.name,Student.name, end=' ')
-        print(self.age)
-s = Student("something")
-s.store_details()
-s.print_details()
+class ZeroDenominatorError(ZeroDivisionError):
+    pass
+try:
+    a = 10
+    b = 5
+    if(b==0):
+        raise ZeroDenominatorError()
+    c = a/b
+except ZeroDivisionError:
+    print('Zero Division Error occured',end= "")
+except ZeroDenominatorError:
+    print('Zero Denominator Error occured',end = "")
+else:
+    print('else works')
