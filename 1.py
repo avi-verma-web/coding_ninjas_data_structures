@@ -1,50 +1,30 @@
-from sys import stdin
+a = [14, 20, 30, 53]
 
-def tripletSum(arr, n, num) :
-    
-    arr.sort () 
-    numTriplets = 0;
-    for i in range (n):
-        pairSumFor = num - arr[i] 
-        numPairs = pairSum(arr, (i + 1), (n - 1), pairSumFor) 
-        numTriplets += numPairs 
-        
-    return numTriplets
 
-def pairSum (arr, startIndex, endIndex, num):
-    numPair = 0 
-    
-    while startIndex < endIndex:
-        if arr[startIndex] + arr[endIndex] < num:
-            startIndex += 1
-            
-        elif arr[startIndex] + arr[endIndex] > num:
-            endIndex -= 1 
-            
+def split(arr):
+    # Implement Your Function here
+    a3 = []
+    a5 = []
+    a = []
+    for i in range(0, len(arr)):
+        if arr[i] % 3 == 0 and arr[i] % 5 != 0:
+            a3.append(arr[i])
+        elif arr[i] % 5 == 0:
+            a5.append(arr[i])
         else:
-            elementAtStart = arr[startIndex] 
-            elementAtEnd = arr[endIndex] 
-            
-            if elementAtStart  == elementAtEnd:
-                totalElementsFromStartToEnd = (endIndex - startIndex) + 1
-                numPair += (totalElementsFromStartToEnd * (totalElementsFromStartToEnd-1)//2)
-                return numPair 
-            
-            tempStartIndex = startIndex + 1
-            tempEndIndex = endIndex - 1
-            
-            while (tempStartIndex <= tempEndIndex) and (arr[tempStartIndex] == elementAtStart):
-                tempStartIndex += 1 
-            
-            while (tempEndIndex >= tempStartIndex) and (arr[tempEndIndex] == elementAtEnd):
-                tempEndIndex -= 1
-            
-            totalElementsFromStart=(tempStartIndex - startIndex) 
-            totalElementsFromEnd = (endIndex - tempEndIndex) 
-            numPair += (totalElementsFromStart * totalElementsFromEnd)
-            startIndex = tempStartIndex 
-            endIndex = tempEndIndex 
-            
-    return numPair
+            a.append(arr[i])
+    if sum(a3)==sum(a5) and len(a)==0:
+        return True
+    elif sum(a3)==sum(a5) and len(a)!=0:
+        return False
+    elif sum(a3)!=sum(a5) and len(a)==0:
+        return False
+    elif sum(a3)!=sum(a5) and len(a)!=0:
+        diff=abs(sum(a3)-sum(a5))
+        if sum(arr)==diff:
+            return True
+        else:
+            return False
 
 
+print(split(a))
