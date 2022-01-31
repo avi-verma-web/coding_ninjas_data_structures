@@ -20,7 +20,3 @@ class StackUsingArray:
         return True if len(self.data) == 0 else False
 
 
-a = StackUsingArray()
-
-print(a.top())
-print(a.isEmpty())
