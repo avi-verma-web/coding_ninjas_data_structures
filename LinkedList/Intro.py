@@ -45,11 +45,11 @@ def printLL(head):
 
 
 def getLength(head):
-    count = 0
+    cnt = 0
     while head is not None:
-        count = count+1
+        cnt += 1
         head = head.next
-    return count
+    return cnt
 
 
 def getIth(head, i):
@@ -114,5 +114,7 @@ def getLengthRecursive(head):
 
 arr = [1, 3, 4, 5, 6]
 
-head = listToLLwithHeadAndTail(arr)
-print(getLengthRecursive(head))
+head = listToLLwithHead(arr)
+
+print(getLength(head))
+
